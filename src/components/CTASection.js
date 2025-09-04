@@ -52,7 +52,7 @@ const CTASection = () => {
             color: '#FFFFFF',
             fontWeight: 800,
             mb: 3,
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #AFBD77 50%, #D4AF37 100%)',
+            background: 'linear-gradient(135deg, #FFFFFF 0%, #AFBD77 50%, #92df5f 100%)',
             backgroundClip: 'text',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',

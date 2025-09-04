@@ -95,8 +95,8 @@ const ContactPage = () => {
     {
       icon: <Email />,
       title: "Correo Electrónico",
-      detail: "ventas@replicascuauhtemoc.com",
-      action: "mailto:ventas@replicascuauhtemoc.com",
+      detail: "ventas@replicascuauhtemoc.com.mx",
+      action: "mailto:ventas@replicascuauhtemoc.com.mx",
       color: "#D4AF37",
       description: "Consultas detalladas"
     },
