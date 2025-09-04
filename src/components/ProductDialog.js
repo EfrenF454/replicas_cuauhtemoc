@@ -438,7 +438,7 @@ const ProductDialog = ({ product, open, onClose }) => {
           p: 3,
           background: 'rgba(248, 249, 250, 0.8)',
           gap: 2,
-          flexDirection: { xs: 'column', sm: 'row' }
+          flexDirection: { xs: 'row', sm: 'row' }
         }}>
           <Button
             onClick={onClose}
@@ -447,6 +447,7 @@ const ProductDialog = ({ product, open, onClose }) => {
             sx={{
               borderColor: '#506C2C',
               color: '#506C2C',
+              height: '46px',
               '&:hover': {
                 borderColor: '#506C2C',
                 backgroundColor: '#506C2C',
@@ -464,8 +465,8 @@ const ProductDialog = ({ product, open, onClose }) => {
             onClick={handleWhatsAppContact}
             disabled={!product.inStock}
             sx={{
-              minWidth: { xs: '100%', sm: '200px' },
-              height: '48px',
+              minWidth: { xs: '70px', sm: '200px' },
+              height: '46px',
               background: product.inStock
                 ? 'linear-gradient(135deg, #25d366 0%, #128c7e 100%)'
                 : 'linear-gradient(135deg, #ccc 0%, #999 100%)',
