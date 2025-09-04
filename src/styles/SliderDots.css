@@ -1,0 +1,143 @@
+/* styles/SliderDots.css - Estilos modernos para el carrusel */
+
+.slick-dots.custom-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slick-dots.custom-dots li {
+  margin: 0;
+  width: auto;
+  height: auto;
+}
+
+.slick-dots.custom-dots li button {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.slick-dots.custom-dots li button:before {
+  display: none;
+}
+
+.slick-dots.custom-dots li button:hover {
+  background: rgba(175, 189, 119, 0.8);
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(175, 189, 119, 0.4);
+}
+
+.slick-dots.custom-dots li.slick-active button {
+  background: linear-gradient(135deg, #AFBD77 0%, #D4AF37 100%);
+  width: 16px;
+  height: 16px;
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(175, 189, 119, 0.5);
+  animation: glow 2s ease-in-out infinite;
+}
+
+.slick-dots.custom-dots li.slick-active button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Mejoras para las flechas del carrusel */
+.slick-prev,
+.slick-next {
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  box-shadow: 0 4px 16px rgba(175, 189, 119, 0.4);
+}
+
+.slick-prev {
+  left: 25px;
+}
+
+.slick-next {
+  right: 25px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 20px;
+  color: white;
+  opacity: 1;
+}
+
+/* Efectos de transición entre slides */
+.slick-slide {
+  transition: all 0.5s ease-in-out;
+}
+
+.slick-slide.slick-active {
+  transform: scale(1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slick-dots.custom-dots {
+    bottom: 20px;
+    padding: 8px 16px;
+    gap: 8px;
+  }
+  
+  .slick-dots.custom-dots li button {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .slick-dots.custom-dots li.slick-active button {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .slick-prev,
+  .slick-next {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .slick-prev {
+    left: 15px;
+  }
+  
+  .slick-next {
+    right: 15px;
+  }
+}
