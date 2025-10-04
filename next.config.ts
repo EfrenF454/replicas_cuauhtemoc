@@ -1,14 +1,24 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: 'export', // Para Firebase Hosting
+  // Comentado para Vercel - descomentar solo para Firebase Hosting
+  // output: 'export',
+
   images: {
-    unoptimized: true, // Necesario para export estático
+    // Solo unoptimized si usas output: 'export'
+    // unoptimized: true,
+
+    // Para Vercel, configurar dominios permitidos si usas imágenes externas
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+      },
+    ],
   },
-  // Trailing slash para compatibilidad con Firebase Hosting
+
+  // Trailing slash opcional
   trailingSlash: true,
-  // Para asegurar que las rutas funcionen correctamente
-  basePath: '',
 };
 
 export default nextConfig;
