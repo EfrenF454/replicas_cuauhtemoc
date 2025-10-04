@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables globales para el patrón de camuflaje */
+:root {
+  --military-camo: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232C3E2D' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Animaciones personalizadas */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Clases utilitarias custom */
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-left {
+    animation: fadeInLeft 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-right {
+    animation: fadeInRight 0.6s ease-out forwards;
+  }
+
+  /* Delays para efectos escalonados */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+
+  /* Efecto glass morphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Gradiente de texto */
+  .text-gradient-military {
+    background: linear-gradient(135deg, #FFFFFF 0%, #AFBD77 50%, #b9ff5d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(175, 189, 119, 0.2);
+  }
+
+  /* Premium card effect */
+  .premium-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(175, 189, 119, 0.1), transparent);
+    transition: left 0.8s;
+  }
+
+  .premium-card:hover::before {
+    left: 100%;
+  }
+}
+
+/* Componentes reutilizables */
+@layer components {
+  .btn-military {
+    @apply px-6 py-3 rounded-full font-semibold transition-all duration-300;
+    @apply bg-gradient-to-br from-secondary to-secondary-dark text-white;
+    @apply hover:scale-105 hover:shadow-military-strong;
+    @apply active:scale-95;
+  }
+
+  .btn-military-outline {
+    @apply px-6 py-3 rounded-full font-semibold transition-all duration-300;
+    @apply border-2 border-primary hover:bg-primary hover:text-white;
+  }
+
+  .card-military {
+    @apply bg-white/90 backdrop-blur-military rounded-military;
+    @apply border border-secondary/30 shadow-military;
+    @apply hover:shadow-military-hover hover:-translate-y-1;
+    @apply transition-all duration-300;
+  }
+
+  .input-military {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-secondary/30;
+    @apply bg-white/90 backdrop-blur-sm;
+    @apply focus:border-secondary focus:ring-2 focus:ring-secondary/20;
+    @apply transition-all duration-300;
+    @apply placeholder:text-gray-400;
+  }
+
+  .section-padding {
+    @apply py-12 md:py-20;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Estilos para slider dots (react-slick) */
+.slick-dots {
+  bottom: 25px !important;
+}
+
+.slick-dots li button:before {
+  font-size: 12px !important;
+  color: white !important;
+  opacity: 0.5 !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #AFBD77 !important;
+  opacity: 1 !important;
+}
+
+.custom-dots li button:before {
+  font-size: 14px !important;
+  transition: all 0.3s ease;
+}
+
+.custom-dots li.slick-active button:before {
+  transform: scale(1.3);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #AFBD77;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #506C2C;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remover outline en botones al hacer clic */
+button:focus {
+  outline: none;
+}
+
+/* Asegurar que las imágenes no se desborden */
+img {
+  max-width: 100%;
+  height: auto;
+}
