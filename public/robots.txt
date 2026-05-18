@@ -1,3 +1,13 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /.git/
+Disallow: /.env
+Disallow: /wp-admin/
+Disallow: /wp-config.php.bak
+Disallow: /phpmyadmin/
+Disallow: /phpinfo.php
+Disallow: /backup.zip
+Disallow: /backup.sql
+Disallow: /database.sql
+Disallow: /config.php
+Disallow: /.DS_Store
